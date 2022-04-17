@@ -1,0 +1,41 @@
+/* header */
+header{
+    height: 30px;
+}
+header .tenTruong{
+    top: 10px;
+    left: 10px;
+}
+header form{
+    top: 20px;
+    right: 300px;
+}
+header .dropdown{
+    right: 45px;
+}
+header .dropdown:hover{
+    cursor: pointer;
+}
+header .dropdown .tenGV{
+    top: 5px;
+}
+header .dropdown .dropdown-menu{
+    width: 330px;
+}
+
+/* nav */
+nav{
+    margin: 0 32px;
+}
+nav ul{
+    list-style: none;
+    background-color: rgb(145, 145, 177);
+}
+nav ul li{
+    display: inline-block;
+    padding: 15px 30px;
+}
+nav ul li a{
+    color: black;
+    font-size: 20px;
+}
