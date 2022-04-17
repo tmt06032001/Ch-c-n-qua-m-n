@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Các thư viện file css -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/quanliNHCH.css">
+
+    <!-- Các thư viện file js -->
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    
+    <title>Quản lí ngân hàng câu hỏi</title>
+</head>
+<body>
+    <div class="container-fluid p-0">
+        <header class="ml-4 mt-2 position-relative">
+            <div class="position-absolute">
+                <img src="../img/logo.png" alt="" width="50" height="55">
+                <h3 class="d-inline-block position-relative tenTruong" id="tenTruong">Tên trường</h3>
+            </div>
+            <form class="form-inline position-absolute" action="">
+                <input class="form-control mr-2" type="text" placeholder="Giáo viên cần tìm...">
+                <button class="btn btn-primary" type="button">Tìm kiếm</button>
+            </form>
+            <div class="dropdown position-absolute">
+                <div class="dropdown-toggle" data-toggle="dropdown">
+                    <div class="d-inline-block mt-2"><img src="../img/account.png" width="60" height="55" alt=""></div>
+                    <h5 class="d-inline-block position-relative tenGV">Tên giáo viên</h5>
+                </div>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <div class="dropdown-item">
+                        <span class="font-weight-bold">Môn dạy:</span>
+                        <span class="tenMonhoc">Toán</span>
+                    </div>
+                    <div class="dropdown-item">
+                        <span class="font-weight-bold">Số điện thoại:</span>
+                        <span id="sdt">0945584715</span>
+                    </div>
+                    <div class="dropdown-item">
+                        <span class="font-weight-bold">Email:</span>
+                        <span id="email">example2022@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <nav class="mt-5">
+            <ul>
+                <li><a class="text-decoration-none" href="#">Trang chủ</a></li>
+                <li><a class="text-decoration-none" href="quanliNHCH.html">Quản lí ngân hàng câu hỏi</a></li>
+                <li><a class="text-decoration-none" href="#">Tạo bài kiểm tra thường kì</a></li>
+                <li><a class="text-decoration-none" href="#">Xét duyệt câu hỏi giữa kì, cuối lì</a></li>
+            </ul>
+        </nav>
+        <main>
+            <div>
+                <div class="d-inline-block position-relative border border-dark rounded qsBank"><img src="../img/questionBank.png" width="50" height="50" alt=""></div>
+                <h2 class="d-inline-block txtNHCH">Ngân hàng câu hỏi</h2>
+                <div class="d-inline-block">
+                    <button class="position-relative; rounded btnThemCauhoi" type="button" id="themCauhoi" data-toggle="modal" data-target="#myModal1">Thêm câu hỏi</button>
+                </div>
+                <h5 class="monhoc">Môn: <span class="tenMonhoc">Toán</span></h5>
+            </div>
+            <div class="row cacBoloc">
+                <div class="col p-0 mr-1">
+                    <select name="" id="selectKhoi" class="form-control khoi">
+                        <option value="">Khối</option>
+                        <option value="khoi6">6</option>
+                        <option value="khoi7">7</option>
+                        <option value="khoi8">8</option>
+                        <option value="khoi9">9</option>
+                    </select>
+                </div>
+                <div class="col p-0 mr-1">
+                    <select name="" id="selectLoaibaiKT" class="form-control loaibai">
+                        <option value="">Loại bài kiểm tra</option>
+                        <option value="thuongki">Thường kì</option>
+                        <option value="giuaki">Giữa kì</option>
+                        <option value="cuoiki">Cuối kì</option>
+                    </select>
+                </div>
+                <div class="col p-0 mr-1">
+                    <select name="" id="selectTinhtrangCH" class="form-control tinhtrang">
+                        <option value="">Tình trạng câu hỏi</option>
+                        <option value="chuaduyet">Chưa duyệt</option>
+                        <option value="daduyet">Đã duyệt</option>
+                        <option value="khongduyet">Không duyệt</option>
+                    </select>
+                </div>
+                <div class="col p-0 mr-1">
+                    <select name="" id="selectNgaytao" class="form-control ngaytao">
+                        <option value="">Ngày tạo</option>
+                        <option value="moi">Gần đây nhất</option>
+                        <option value="cu">Cũ nhất</option>
+                    </select>
+                </div>
+            </div>
+            <div class="divTable">
+                <table>
+                    <tr>
+                        <th>STT</th>
+                        <th>Khối</th>
+                        <th>Giáo viên tạo câu</th>
+                        <th>Nội dung câu hỏi</th>
+                        <th>Loại bài kiểm tra</th>
+                        <th>Tình trạng câu hỏi</th>
+                        <th>Ngày tạo</th>
+                    </tr>
+                    <tr data-toggle="modal" data-target="#myModal2">
+                        <td>1</td>
+                        <td>9</td>
+                        <td>Tên giáo viên</td>
+                        <td>Số nào sau đây là căn bậc hai số học của số a = 2,25</td>
+                        <td>Giữa kì</td>
+                        <td>Đã duyệt</td>
+                        <td>03/11/2022</td>
+                    </tr>
+                    <tr data-toggle="modal" data-target="#myModal2">
+                        <td>2</td>
+                        <td>6</td>
+                        <td>Tên giáo viên</td>
+                        <td>Số nào trong các số sau là số nguyên tố?</td>
+                        <td>Thường kì</td>
+                        <td>Không duyệt</td>
+                        <td>18/03/2022</td>
+                    </tr>
+                    <tr data-toggle="modal" data-target="#myModal2">
+                        <td>3</td>
+                        <td>9</td>
+                        <td>Tên giáo viên</td>
+                        <td>Cho tam giác ABC vuông tại A, đường cao AH có AB = 13cm, BH = 0,5dm. Tính tỉ số lượng giác sinC (làm tròn đến chữ số thập phân thứ 2)</td>
+                        <td>Cuối kì</td>
+                        <td>Đã duyệt</td>
+                        <td>17/04/2022</td>
+                    </tr>
+                    <tr data-toggle="modal" data-target="#myModal2">
+                        <td>4</td>
+                        <td>9</td>
+                        <td>Tên giáo viên</td>
+                        <td>Cho đường tròn (O) đường kính AB và dây CD không đi qua tâm. Khẳng định nào sau đây là đúng?</td>
+                        <td>Giữa kì</td>
+                        <td>Chưa duyệt</td>
+                        <td>10/04/2022</td>
+                    </tr>
+                </table>
+            </div>
+        </main>
+        <div class="modal fade" id="myModal1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Thêm câu hỏi</h3>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="">
+                            <div class="input-group mb-3 giaovien">
+                                <h6 class="font-weight-bold">Giáo viên:</h6>
+                                <span class="tenGV">Tên giáo viên</span>
+                            </div>
+                            <div class="input-group mb-3 mon">
+                                <h6 class="font-weight-bold">Môn học:</h6>
+                                <span class="tenMonhoc">Tên môn học</span>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <label for="khoi" class="input-group-text">Khối:</label>
+                                </div>
+                                <select name="" id="khoi" class="form-control">
+                                    <option value=""></option>
+                                    <option value="khoi6">6</option>
+                                    <option value="khoi7">7</option>
+                                    <option value="khoi8">8</option>
+                                    <option value="khoi9">9</option>
+                                </select>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <label for="loaibaiKiemtra" class="input-group-text">Loại bài kiểm tra:</label>
+                                </div>
+                                <select name="" id="loaibaiKiemtra" class="form-control">
+                                    <option value=""></option>
+                                    <option value="thuongki">Thường kì</option>
+                                    <option value="giuaki">Giữa kì</option>
+                                    <option value="cuoiki">Cuối kì</option>
+                                </select>
+                            </div>
+                            <div class="mb-2">
+                                <div class="mb-2 ml-3"><label class="w-100" for="txtNoidungCH">Nội dung câu hỏi:</label></div>
+                                <textarea class="form-control" name="" id="txtNoidungCH" cols="60" rows="5"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label class="ml-3 mb-3">Các phương án trả lời:</label>
+                                <div class="ml-2">
+                                    <div class="mb-3">
+                                        <button type="button" class="btn p-0 input-group">
+                                            <label for="" class="input-group-text dapan">A</label>
+                                            <input type="text" class="form-control">
+                                        </button>
+                                    </div>
+                                    <div class="mb-3">
+                                        <button type="button" class="btn p-0 input-group">
+                                            <label for="" class="input-group-text dapan">B</label>
+                                            <input type="text" class="form-control">
+                                        </button>
+                                    </div>
+                                    <div class="mb-3">
+                                        <button type="button" class="btn p-0 input-group">
+                                            <label for="" class="input-group-text dapan">C</label>
+                                            <input type="text" class="form-control">
+                                        </button>
+                                    </div>
+                                    <div class="mb-3">
+                                        <button type="button" class="btn p-0 input-group">
+                                            <label for="" class="input-group-text dapan">D</label>
+                                            <input type="text" class="form-control">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-block ml-2 mb-4">
+                                <a href="#"><img src="../img/pictureFile.png" width="23" height="20" alt=""><span class="ml-2 fl-6">Click vào để thêm hình ảnh (không bắt buộc)</span></a>
+                            </div>
+                            <div class="row px-1">
+                                <div class="col-9">
+                                    <button type="button" class="btn btn-danger w-100">Lưu câu hỏi</button>
+                                </div>
+                                <div class="col-3">
+                                    <button type="button" class="btn btn-success w-100">Tiếp tục</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal2">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Thông tin câu hỏi</h3>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-2"><span class="font-weight-bold mr-1">Ngày tạo:</span>18/03/2022</div>
+                        <div class="mb-2"><span class="font-weight-bold mr-1">Tình trạng:</span>Đã duyệt</div>
+                        <div class="mb-1"><span class="font-weight-bold mr-1">Giáo viên tạo câu:</span>Tên giáo viên</div>
+                        <div class="mb-2"><span class="font-weight-bold mr-1">Môn học:</span>Lịch sử</div>
+                        <form action="">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text">Khối:</label>
+                                </div>
+                                <input class="form-control bg-light" type="text" value="8" readonly>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label for="loaibaiKiemtra2" class="input-group-text">Loại bài kiểm tra:</label>
+                                </div>
+                                <select name="" id="loaibaiKiemtra2" class="form-control">
+                                    <option value="giuaki">Giữa kì</option>
+                                    <option value="thuongki">Thường kì</option>
+                                    <option value="cuoiki">Cuối kì</option>
+                                </select>
+                            </div>
+                            <div class="mb-2">
+                                <div class="mb-2 ml-3"><label class="w-100" for="txtNoidungCH2">Nội dung câu hỏi:</label></div>
+                                <textarea class="form-control" name="" id="txtNoidungCH2" cols="60" rows="5">Cuộc Duy tân Minh Trị có tác động như thế nào đến tình hình Nhật Bản cuối thế kỉ XIX- đầu thế kỉ XX?</textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label style="margin-left: 15px;" class="mb-3">Các phương án trả lời:</label>
+                                <div class="ml-2">
+                                    <div class="mb-3">
+                                        <button type="button" class="btn p-0 input-group">
+                                            <label for="" class="input-group-text dapan">A</label>
+                                            <input type="text" class="form-control" value="Tạo tiền đề để Nhật chiến thắng trong các cuộc chiến tranh xâm lược thuộc địa.">
+                                        </button>
+                                    </div>
+                                    <div class="mb-3">
+                                        <button type="button" class="btn p-0 input-group">
+                                            <label for="" class="input-group-text dapan">B</label>
+                                            <input type="text" class="form-control" value="Giúp Nhật Bản thoát khỏi nguy cơ bị biến thành thuộc địa, phát triển thành nước tư bản công nghiệp">
+                                        </button>
+                                    </div>
+                                    <div class="mb-3">
+                                        <button type="button" class="btn p-0 input-group">
+                                            <label for="" class="input-group-text dapan">C</label>
+                                            <input type="text" class="form-control" value="Đưa Nhật Bản tiến nhanh trên con đường đế quốc chủ nghĩa">
+                                        </button>
+                                    </div>
+                                    <div class="mb-3">
+                                        <button type="button" class="btn p-0 input-group">
+                                            <label for="" class="input-group-text dapan">D</label>
+                                            <input type="text" class="form-control" value="Đưa Nhật Bản thoát khỏi tình trạng lạc hậu, gia nhập vào hàng ngũ các nước đế quốc">
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <img src="" width="100%" alt="">
+                            </div>
+                            <div class="d-block ml-2 mb-4">
+                                <a href="#"><img src="../img/pictureFile.png" width="23" height="20" alt=""><span class="ml-2">Click vào để cập nhật hình ảnh (không bắt buộc)</span></a>
+                            </div>
+                            <div class="row px-1">
+                                <div class="col-6">
+                                    <button type="button" class="btn btn-info w-100" disabled>Cập nhật</button>
+                                </div>
+                                <div class="col-6">
+                                    <button type="button" class="btn btn-danger w-100">Xóa</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+/* nav */
+nav ul li:nth-child(2){
+    background-color: rgb(74, 74, 117);
+}
+nav ul li:nth-child(2) a{
+    color: white;
+}
+
+/* main */
+main{
+    margin: 50px 30px;
+    background-color: skyblue;
+    padding: 45px 0;
+}
+main .qsBank{
+    margin-left: 80px;
+    top: 6px;
+}
+main .txtNHCH{
+    margin-left: 10px;
+}
+main .btnThemCauhoi{
+    border: none;
+    border: 1px solid rgb(75, 75, 185);
+    padding: 8px 15px;
+    margin-left: 650px;
+}
+main .monhoc{
+    margin-left: 150px;
+    margin-top: -10px;
+}
+main .cacBoloc{
+    font-size: 20px;
+    margin-left: 80px;
+    margin-top: 20px;
+    width: 860px;
+}
+main .khoi{
+    width: 100px;
+}
+main .loaibai{
+    width: 190px;
+    margin-left: -105px;
+}
+main .tinhtrang{
+    width: 200px;
+    margin-left: -120px;
+}
+main .ngaytao{
+    width: 140px;
+    margin-left: -127px;
+}
+main #themCauhoi:hover{
+    cursor: pointer;
+}
+
+/* table -> main*/
+main .divTable{
+    margin-left: 80px;
+    margin-top: 20px;
+} 
+main table th,
+main table td{
+    padding: 15px;
+    border: 1px solid silver;
+}
+main table th{
+    font-size: 15px;
+    background-color: #3898ca;
+}
+main table th:nth-child(1),
+main table th:nth-child(2){
+    text-align: center;
+    width: 70px;
+}
+main table th:nth-child(3){
+    width: 240px;
+}
+main table th:nth-child(4){
+    width: 430px;
+}
+main table th:nth-child(5),
+main table th:nth-child(6){
+    width: 180px;
+}
+main table th:nth-child(7){
+    width: 140px;
+}
+main table td{
+    font-size: 15px;
+    background-color: white;
+}
+main table td:nth-child(1),
+main table td:nth-child(2){
+    text-align: center;
+}
+main table:hover{
+    cursor: pointer;
+}
+
+/* modal */
+.input-group-text label{
+    text-align: left;
+    width: 150px;
+}
+.dapan:hover{
+    cursor: pointer;
+}
+#myModal1 .modal-body .giaovien span,
+#myModal1 .modal-body .mon span{
+    margin-top: -2px;
+    margin-left: 5px;
+}
