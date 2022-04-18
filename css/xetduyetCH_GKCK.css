@@ -1,0 +1,81 @@
+/* nav */
+nav ul li:nth-child(4) {
+    background-color: rgb(74, 74, 117);
+}
+
+nav ul li:nth-child(4) a {
+    color: white;
+}
+
+/* main */
+main .mainTitle div {
+    margin-left: 80px;
+}
+
+main .mainTitle h5 {
+    margin-left: 140px;
+    margin-top: -15px;
+}
+
+main .cacboloc {
+    font-size: 20px;
+    margin-top: 15px;
+    margin-left: 80px;
+    width: 590px;
+}
+
+main .divTable1 {
+    margin-left: 80px;
+    margin-top: 20px;
+}
+
+/* table -> main */
+main table th:nth-child(1),
+main table th:nth-child(3) {
+    width: 70px;
+    text-align: center;
+}
+
+main table th:nth-child(2) {
+    width: 300px;
+}
+
+main table th:nth-child(4) {
+    width: 140px;
+}
+
+main table th:nth-child(5) {
+    width: 180px;
+}
+
+main .table1:hover {
+    cursor: pointer;
+}
+
+main table th,
+main table td {
+    padding: 15px;
+    border: 1px solid silver;
+}
+
+main table th {
+    background-color: #3898ca;
+}
+
+main table td {
+    background-color: white;
+}
+
+main table td:nth-child(1),
+main table td:nth-child(3) {
+    text-align: center;
+}
+
+main .divTable2 {
+    margin-top: -38px;
+    margin-left: 95px;
+}
+
+main .table2 th:first-child {
+    background-color: #64a4c7;
+}

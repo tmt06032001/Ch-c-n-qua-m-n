@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Các thư viện file css -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/taoBaiKiemtraTK.css">
+
+    <!-- Các thư viện file js -->
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <title>Tạo bài kiểm tra thường kỳ (trắc nghiệm)</title>
+
+    <script>
+        $(window).ready(function(){
+            $("#taotuNHCH").click(function(){
+                $("#myModal1").modal("hide")
+
+                // Đợi 1 giây sau thì mới mở modal 2
+                const myInterval = setTimeout(function(){
+                    $("#myModal2").modal("show")
+                    clearTimeout(myInterval)
+                }, 1000)
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid p-0">
+        <header class="ml-4 mt-2 position-relative">
+            <div class="position-absolute">
+                <img src="../img/logo.png" alt="" width="50" height="55">
+                <h3 class="d-inline-block position-relative tenTruong" id="tenTruong">Tên trường</h3>
+            </div>
+            <form class="form-inline position-absolute" action="">
+                <input class="form-control mr-2" type="text" placeholder="Giáo viên cần tìm...">
+                <button class="btn btn-primary" type="button">Tìm kiếm</button>
+            </form>
+            <div class="dropdown position-absolute">
+                <div class="dropdown-toggle" data-toggle="dropdown">
+                    <div class="d-inline-block mt-2"><img src="../img/account.png" width="60" height="55" alt=""></div>
+                    <h5 class="d-inline-block position-relative tenGV">Tên giáo viên</h5>
+                </div>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <div class="dropdown-item">
+                        <span class="font-weight-bold">Môn dạy:</span>
+                        <span class="tenMonhoc">Toán</span>
+                    </div>
+                    <div class="dropdown-item">
+                        <span class="font-weight-bold">Số điện thoại:</span>
+                        <span id="sdt">0945584715</span>
+                    </div>
+                    <div class="dropdown-item">
+                        <span class="font-weight-bold">Email:</span>
+                        <span id="email">example2022@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <nav class="mt-5">
+            <ul>
+                <li><a class="text-decoration-none" href="#">Trang chủ</a></li>
+                <li><a class="text-decoration-none" href="quanliNHCH.html">Quản lí ngân hàng câu hỏi</a></li>
+                <li><a class="text-decoration-none" href="taoBaiKiemtraTK.html">Tạo bài kiểm tra thường kì</a></li>
+                <li><a class="text-decoration-none" href="xetduyetCH_GKCK.html">Xét duyệt câu hỏi giữa kì, cuối lì</a></li>
+            </ul>
+        </nav>
+        <main>
+            <form action="">
+                <fieldset class="mb-3">
+                    <legend>Phần đầu đề</legend>
+                    <div class="input-group ml-2">
+                        <h5>Môn học:<span class="ml-2 tenMonhoc">Toán</span></h5>
+                    </div>
+                    <div class="input-group mb-3">
+                        <label for="tende" class="input-group-text labelDaude">Tên đề</label>
+                        <input type="text" class="form-control" id="tende" placeholder="Đề kiểm tra thường kì số 1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <label for="lop" class="input-group-text labelDaude">Lớp</label>
+                        <select name="" id="lop" class="form-control">
+                            <option value="lop9a1">9a1</option>
+                            <option value="lop9a2">9a2</option>
+                            <option value="lop9a3">9a3</option>
+                            <option value="lop9a3">9a4</option>
+                            <option value="lop9a3">9a5</option>
+                        </select>
+                        <div class="position-absolute dropdownIcon">
+                            <img src="../img/dropdown.png" width="12" alt="">
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <label for="ngay" class="input-group-text labelDaude">Ngày kiểm tra</label>
+                        <input type="date" class="form-control" id="ngay">
+                    </div>
+                    <div class="input-group mb-3">
+                        <label for="gio" class="input-group-text labelDaude">Giờ kiểm tra</label>
+                        <input type="time" class="form-control" id="gio">
+                    </div>
+                    <div class="input-group mb-3">
+                        <label for="thoigian" class="input-group-text labelDaude">Thời gian làm bài</label>
+                        <select name="" id="thoigian" class="form-control">
+                            <option value="15phut">15 phút</option>
+                            <option value="30phut">30 phút</option>
+                            <option value="45phut">45 phút</option>
+                        </select>
+                        <div class="position-absolute dropdownIcon">
+                            <img src="../img/dropdown.png" width="12" alt="">
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Phần thân đề</legend>
+                    <div class="mb-2" id="cacCauhoiTracnghiem">
+                        <div class="row input-group mb-3">
+                            <div class="col-3 pr-3"><label for="" class="input-group-text dapan">Nhập số lượng câu hỏi
+                                    muốn tạo:</label></div>
+                            <div class="col-2 pl-0 pr-1"><input type="text" class="form-control" id="soluongCH"
+                                    value="1">
+                            </div>
+                            <div class="col px-0"><button type="button" class="btn btn-primary" id="btnTaoSoluongCH"
+                                    data-toggle="modal" data-target="#myModal1">Tạo</button></div>
+                        </div>
+                        <div id="cacCauhoi">
+                            <div class="cauhoi">
+                                <div class="mb-2 ml-3"><label class="w-100" for="inputTieude">Câu 1:</label></div>
+                                <textarea class="form-control" cols="60" rows="5"
+                                    placeholder="Nhập nội dung câu hỏi"></textarea>
+                                <label class="mt-2 mb-2 ml-3">Các phương án trả lời:</label>
+                                <div class="cacPhuonganTraloi">
+                                    <button type="button" class="btn p-0 w-100 mb-3">
+                                        <div class="input-group">
+                                            <label for="" class="input-group-text dapan">A</label>
+                                            <input type="text" class="form-control" placeholder="Câu trả lời A">
+                                        </div>
+                                    </button>
+                                    <button type="button" class="btn p-0 w-100 mb-3">
+                                        <div class="input-group">
+                                            <label for="" class="input-group-text dapan">B</label>
+                                            <input type="text" class="form-control" placeholder="Câu trả lời B">
+                                        </div>
+                                    </button>
+                                    <button type="button" class="btn p-0 w-100 mb-3">
+                                        <div class="input-group">
+                                            <label for="" class="input-group-text dapan">C</label>
+                                            <input type="text" class="form-control" placeholder="Câu trả lời C">
+                                        </div>
+                                    </button>
+                                    <button type="button" class="btn p-0 w-100 mb-3">
+                                        <div class="input-group">
+                                            <label for="" class="input-group-text dapan">D</label>
+                                            <input type="text" class="form-control" placeholder="Câu trả lời D">
+                                        </div>
+                                    </button>
+                                </div>
+                                <div class="ml-2 mb-4">
+                                    <a href="#"><img src="../img/pictureFile.png" width="23" height="20" alt=""><span
+                                            class="ml-2 text-dark">Thêm hình ảnh (nếu cần)</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="mt-2">
+                    <button type="button" class="btn btn-success w-100">LƯU
+                        BÀI</button>
+                </div>
+            </form>
+        </main>
+        <div class="modal fade" id="myModal1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Giáo viên muốn <span class="text-danger">tạo câu thủ công</span> hay <span class="text-danger">tạo câu từ ngân hàng câu hỏi</span></h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <button type="button" class="btn btn-success col mx-2" id="taoThucong">Tạo thủ công</button>
+                            <button type="button" class="btn btn-info col mx-2" id="taotuNHCH">Tạo câu từ NHCH</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="myModal2">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Tạo câu từ ngân hàng câu hỏi</h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <div>
+                                <span style="font-weight: 500;">Môn:</span>
+                                <span id="mon">Toán</span>
+                                <span id="khoi">9</span>
+                            </div>
+                        </div>
+                        <div class="mb-5">
+                            <div class="float-left mr-3">
+                                <span style="font-weight: 500;">Số lượng câu hỏi:</span>
+                                <span id="soluongCH">5</span>
+                            </div>
+                            <div class="float-left">
+                                <span style="font-weight: 500;">Đã chọn:</span>
+                                <span id="soluongCH_dachon">2</span>
+                            </div>
+                        </div>
+                        <h6 class="clearfix mt-3">Danh sách các câu hỏi trong ngân hàng câu hỏi:</h6>
+                        <div class="divTable">
+                            <table class="text-left" id="tableCacCauhoi">
+                                <tr class="cauhoi">
+                                    <th>Đã chọn</th>
+                                    <th>STT</th>
+                                    <th>Tên giáo viên tạo</th>
+                                    <th>Nội dung câu hỏi</th>
+                                    <th>Các phương án trả lời</th>
+                                    <th>Đáp án</th>
+                                    <th>Số lượng đã chọn</th>
+                                </tr>
+                                <tr class="cauhoi">
+                                    <td>
+                                        <input type="checkbox" id="cau1" checked>
+                                    </td>
+                                    <td>1</td>
+                                    <td>Tên giáo viên</td>
+                                    <td>Số nào sau đây là căn bậc hai số học của số a = 2,25</td>
+                                    <td>
+                                        <div>
+                                            <div style="float: left;">A. -1.5 và 1.5</div>
+                                            <div style="float: right">B. 1.25</div>
+                                        </div>
+                                        <div style="clear:both">
+                                            <div style="float: left;">C. 1.5</div>
+                                            <div style="float: right">D. -1.5</div>
+                                        </div>
+                                    </td>
+                                    <td>C</td>
+                                    <td style="background-color: gray; color: white;">1</td>
+                                </tr>
+                                <tr class="cauhoi">
+                                    <td>
+                                        <input type="checkbox">
+                                    </td>
+                                    <td>2</td>
+                                    <td>Tên giáo viên</td>
+                                    <td>Cho số thực a > 0. Số nào sau dây là căn bậc hai số học của a?</td>
+                                    <td>
+                                        <div>
+                                            <div style="float: left;">A. <span
+                                                    style="font-size: 24px;">&radic;</span><span
+                                                    style="border-top: 1px solid black;margin-left: -3px;">a</span>
+                                            </div>
+                                            <div style="float: right">B. -<span
+                                                    style="font-size: 24px;">&radic;</span><span
+                                                    style="border-top: 1px solid black;margin-left: -3px;">a</span>
+                                            </div>
+                                        </div>
+                                        <div style="clear:both">
+                                            <div style="float: left;">C. <span
+                                                    style="font-size: 24px;">&radic;</span><span
+                                                    style="border-top: 1px solid black;margin-left: -3px;">2a</span>
+                                            </div>
+                                            <div style="float: right">D. 2<span
+                                                    style="font-size: 24px;">&radic;</span><span
+                                                    style="border-top: 1px solid black;margin-left: -3px;">a</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>A</td>
+                                    <td></td>
+                                </tr>
+                                <tr class="cauhoi">
+                                    <td>
+                                        <input type="checkbox" checked>
+                                    </td>
+                                    <td>3</td>
+                                    <td>Tên giáo viên</td>
+                                    <td>So sánh hai số: 5 và <span style="font-size: 24px;">&radic;</span><span
+                                            style="border-top: 1px solid black;margin-left: -3px;">50</span> - 2</td>
+                                    <td>
+                                        <div>
+                                            <div style="float: left;">A. 5 &#62; <span
+                                                    style="font-size: 24px;">&radic;</span><span
+                                                    style="border-top: 1px solid black;margin-left: -3px;">50</span> - 2
+                                            </div>
+                                            <div style="float: right">B. 5 = <span
+                                                    style="font-size: 24px;">&radic;</span><span
+                                                    style="border-top: 1px solid black;margin-left: -3px;">50</span> - 2
+                                            </div>
+                                        </div>
+                                        <div style="clear:both">
+                                            <div style="float: left;">C. 5 &#60; <span
+                                                    style="font-size: 24px;">&radic;</span><span
+                                                    style="border-top: 1px solid black;margin-left: -3px;">50</span> - 2
+                                            </div>
+                                            <div style="position: relative; top: 5px;">D. Chưa đủ điều kiện để so sánh
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>C</td>
+                                    <td style="background-color: gray; color: white;">2</td>
+                                </tr>
+                                <tr class="cauhoi">
+                                    <td>
+                                        <input type="checkbox">
+                                    </td>
+                                    <td>4</td>
+                                    <td>Tên giáo viên</td>
+                                    <td>Cho đường thẳng d có phương trình (5m - 15)x + 2my = m - 2. Tìm các giá trị của
+                                        tham số m để d song song với trục hoành.</td>
+                                    <td>
+                                        <div>
+                                            <div style="float: left;">A. m = 1</div>
+                                            <div style="float: right">B. m = 2</div>
+                                        </div>
+                                        <div style="clear:both">
+                                            <div style="float: left;">C. m = 3</div>
+                                            <div style="float: right">D. m = 4</div>
+                                        </div>
+                                    </td>
+                                    <td>C</td>
+                                    <td></td>
+                                </tr>
+                                <tr class="cauhoi">
+                                    <td>
+                                        <input type="checkbox">
+                                    </td>
+                                    <td>5</td>
+                                    <td>Tên giáo viên</td>
+                                    <td>Cho hình nón có bán kính đáy R = 3 (cm) và chiều cao h = 4 (cm). Diện tích xung
+                                        quanh của hình nón là:</td>
+                                    <td>
+                                        <div>
+                                            <div style="float: left;">A. 25π (cm<sup>2</sup>)</div>
+                                            <div style="float: right">B. 12π (cm<sup>2</sup>)</div>
+                                        </div>
+                                        <div style="clear:both">
+                                            <div style="float: left;">C. 20π (cm<sup>2</sup>)</div>
+                                            <div style="float: right">D. 15π (cm<sup>2</sup>)</div>
+                                        </div>
+                                    </td>
+                                    <td>D</td>
+                                    <td></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <button type="button" class="btn btn-success w-100 disabled" id="taoCH">Tạo câu
+                                    hỏi</button>
+                            </div>
+                            <div class="col-6">
+                                <button type="button" class="btn btn-info w-100 taoCH_tudong">Tạo câu hỏi tự
+                                    động</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

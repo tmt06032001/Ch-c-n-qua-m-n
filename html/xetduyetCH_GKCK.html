@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Các thư viện file css -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/xetduyetCH_GKCK.css">
+
+    <!-- Các thư viện file js -->
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+
+    <title>Xét duyệt câu hỏi giữa kì, cuối kì</title>
+
+    <script>
+        $(window).ready(function () {
+            $("#btnKhongDuyetbai").click(function () {
+                $("#myModal1").modal("hide")
+
+                // Đợi 1 giây sau thì mới mở modal 2
+                const myInterval = setTimeout(function () {
+                    $("#myModal2").modal("show")
+                    clearTimeout(myInterval)
+                }, 1000)
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid p-0">
+        <header class="ml-4 mt-2 position-relative">
+            <div class="position-absolute">
+                <img src="../img/logo.png" alt="" width="50" height="55">
+                <h3 class="d-inline-block position-relative tenTruong" id="tenTruong">Tên trường</h3>
+            </div>
+            <form class="form-inline position-absolute" action="">
+                <input class="form-control mr-2" type="text" placeholder="Giáo viên cần tìm...">
+                <button class="btn btn-primary" type="button">Tìm kiếm</button>
+            </form>
+            <div class="dropdown position-absolute">
+                <div class="dropdown-toggle" data-toggle="dropdown">
+                    <div class="d-inline-block mt-2"><img src="../img/account.png" width="60" height="55" alt=""></div>
+                    <h5 class="d-inline-block position-relative tenGV">Tên giáo viên</h5>
+                </div>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <div class="dropdown-item">
+                        <span class="font-weight-bold">Môn dạy:</span>
+                        <span class="tenMonhoc">Toán</span>
+                    </div>
+                    <div class="dropdown-item">
+                        <span class="font-weight-bold">Số điện thoại:</span>
+                        <span id="sdt">0945584715</span>
+                    </div>
+                    <div class="dropdown-item">
+                        <span class="font-weight-bold">Email:</span>
+                        <span id="email">example2022@gmail.com</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <nav class="mt-5">
+            <ul>
+                <li><a class="text-decoration-none" href="#">Trang chủ</a></li>
+                <li><a class="text-decoration-none" href="quanliNHCH.html">Quản lí ngân hàng câu hỏi</a></li>
+                <li><a class="text-decoration-none" href="taoBaiKiemtraTK.html">Tạo bài kiểm tra thường kì</a></li>
+                <li><a class="text-decoration-none" href="xetduyetCH_GKCK.html">Xét duyệt câu hỏi giữa kì, cuối lì</a>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <div class="mainTitle">
+                <div class="d-inline-block position-relative"><img src="../img/list.png" width="45" height="50" alt="">
+                </div>
+                <h2 class="ml-2 d-inline-block position-relative">Danh sách các bài duyệt</h2>
+                <h5>Môn:<span class="ml-2 tenMonhoc">Toán</span></h5>
+            </div>
+            <div class="row cacboloc">
+                <div class="col p-0 mr-2">
+                    <select id="khoi" class="form-control">
+                        <option value="">Khối</option>
+                        <option value="khoi6">6</option>
+                        <option value="khoi7">7</option>
+                        <option value="khoi8">8</option>
+                        <option value="khoi9">9</option>
+                    </select>
+                </div>
+                <div class="col p-0 mr-2">
+                    <select id="tinhtrang" class="form-control">
+                        <option value="">Tình trạng câu hỏi</option>
+                        <option value="chuaduyet">Chưa duyệt</option>
+                        <option value="daduyet">Đã duyệt</option>
+                        <option value="khongduyet">Không duyệt</option>
+                    </select>
+                </div>
+                <div class="col p-0 mr-2">
+                    <select id="ngaytao" class="form-control ngaytao">
+                        <option value="">Ngày tạo</option>
+                        <option value="moi">Gần đây nhất</option>
+                        <option value="cu">Cũ nhất</option>
+                    </select>
+                </div>
+            </div>
+            <div class="divTable1 d-inline-block">
+                <table class="table1 text-left">
+                    <tr class="cauhoi">
+                        <th>STT</th>
+                        <th>Giáo viên yêu cầu duyệt</th>
+                        <th>Khối</th>
+                        <th>Ngày tạo</th>
+                        <th>Tình trạng câu hỏi</th>
+                    </tr>
+                    <tr class="cauhoi" data-toggle="modal" data-target="#myModal1">
+                        <td>1</td>
+                        <td>Tên giáo viên</td>
+                        <td>6</td>
+                        <td>14/03/2022</td>
+                        <td>Chưa duyệt</td>
+                    </tr>
+                    <tr class="cauhoi" data-toggle="modal" data-target="#myModal1">
+                        <td>2</td>
+                        <td>Tên giáo viên</td>
+                        <td>9</td>
+                        <td>01/03/2022</td>
+                        <td>Đã duyệt</td>
+                    </tr>
+                    <tr class="cauhoi" data-toggle="modal" data-target="#myModal1">
+                        <td>3</td>
+                        <td>Tên giáo viên</td>
+                        <td>7</td>
+                        <td>18/03/2022</td>
+                        <td>Không duyệt</td>
+                    </tr>
+                    <tr class="cauhoi" data-toggle="modal" data-target="#myModal1">
+                        <td>4</td>
+                        <td>Tên giáo viên</td>
+                        <td>8</td>
+                        <td>18/04/2022</td>
+                        <td>Chưa duyệt</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="position-fixed d-inline-block divTable2">
+                <table class="table2">
+                    <tr>
+                        <th style="width: 200px;">Tổng bài duyệt</th>
+                        <td style="width: 70px;" id="tongBaiduyet">4</td>
+                    </tr>
+                    <tr>
+                        <th>Đã duyệt</th>
+                        <td id="tongDaduyet">1</td>
+                    </tr>
+                    <tr>
+                        <th>Chưa duyệt</th>
+                        <td id="tongChuaduyet">2</td>
+                    </tr>
+                    <tr>
+                        <th>Không duyệt</th>
+                        <td id="tongKhongduyet">1</td>
+                    </tr>
+                </table>
+            </div>
+        </main>
+
+        <!-- Modal xem thông tin chi tiết của bài duyệt đã chọn -->
+        <div class="modal fade" id="myModal1">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">Thông tin chi tiết bài duyệt</h3>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="">
+                            <div class="mb-2 border-bottom" style="height: 100px;">
+                                <div class="float-left">
+                                    <div>
+                                        <span class="font-weight-bold">Tình trạng:</span>
+                                        <span id="tinhtrang2">Chưa duyệt</span>
+                                    </div>
+                                    <div>
+                                        <span class="font-weight-bold">Học kì:</span>
+                                        <span id="hocki">Giữa kì</span>
+                                    </div>
+                                    <div>
+                                        <span class="font-weight-bold">Ngày tạo:</span>
+                                        <span id="ngaytao2">14/03/2022</span>
+                                    </div>
+                                </div>
+                                <div class="float-right">
+                                    <div>
+                                        <span class="font-weight-bold">Giáo viên:</span>
+                                        <span id="tenGV2">Tên giáo viên</span>
+                                    </div>
+                                    <div>
+                                        <span class="font-weight-bold">Khối:</span>
+                                        <span id="khoi2">9</span>
+                                    </div>
+                                    <div>
+                                        <span class="font-weight-bold">Môn:</span>
+                                        <span class="tenMonhoc">Toán</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <h5 id="tracnghiem" class="clearfix">I. Trắc nghiệm</h5>
+                            <div class="mb-2" id="cacCauhoiTracnghiem">
+                                <div class="cauhoiTracnghiem">
+                                    <div class="mb-2 ml-3"><label class="w-100" for="noidungCH_tracnghiem">Câu
+                                            1:</label></div>
+                                    <textarea class="form-control bg-white" name="" id="noidungCH_tracnghiem" cols="60"
+                                        rows="5"
+                                        readonly>Số nào sau đây là căn bậc hai số học của số a = 2,25</textarea>
+                                    <label class="ml-3 mt-1 mb-3">Các phương án trả lời:</label>
+                                    <div class="ml-1">
+                                        <div class="mb-3">
+                                            <div class="input-group">
+                                                <label for="" class="input-group-text dapan">A</label>
+                                                <input type="text" class="form-control bg-white" id="dapanA"
+                                                    value="-1.5 và 1.5" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="input-group">
+                                                <label for="" class="input-group-text dapan">B</label>
+                                                <input type="text" class="form-control bg-white" id="dapanB"
+                                                    value="1.25" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="input-group border border-success rounded-2">
+                                                <label for="" class="input-group-text dapan">C</label>
+                                                <input type="text" class="form-control bg-white" id="dapanC" value="1.5"
+                                                    readonly>
+                                            </div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="input-group">
+                                                <label for="" class="input-group-text dapan">D</label>
+                                                <input type="text" class="form-control bg-white" id="dapanD"
+                                                    value="-1.5" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <h5 id="tuluan" class="clearfix">II. Tự luận</h5>
+                            <div id="cacCauhoiTuLuan">
+                                <div class="cauhoiTuluan">
+                                    <div class="mb-2 ml-3"><label class="w-100" for="noidungCH_tuluan">Câu 1:</label>
+                                    </div>
+                                    <textarea class="form-control bg-white" name="" id="noidungCH_tuluan" cols="60"
+                                        rows="5" readonly>Cho tam giác ABC cân tại A, AH là đường cao. Đường thẳng qua C vuông góc AC cắt AH ở O. Vẽ đường tròn tâm O bán kính OC cắt tia Ax nằm trong góc BAC tại M và N (AM &#60; AN). Gọi K là chân đường vuông góc kẻ từ O lên Ax
+    a) Chứng minh: Bốn điểm A, C, O, K thuộc một đường tròn
+    b) Biết AH = 24cm, OH = 6cm. Tính chu vi tam giác ABC?
+    c) Gọi Ax cắt BC tại I. Chứng minh: AI.AK = AC2 
+    d) Gọi G là trọng tâm tam giác CMN. Khi Ax di động thì G chạy trên đường nào?</textarea>
+                                </div>
+                            </div>
+                            <div class="row mt-3">
+                                <div class="col-6">
+                                    <button type="button" class="btn btn-success w-100" id="btnDuyetbai">Duyệt
+                                        bài</button>
+                                </div>
+                                <div class="col-6">
+                                    <button type="button" class="btn btn-danger w-100" id="btnKhongDuyetbai">Không duyệt</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="myModal2">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title text-danger">Giáo viên có chắc chắn <span
+                                class="font-weight-bold">không</span> duyệt bài này?</h3>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <label for="lydo" class="form-label">
+                                <h4>Nhập lý do:</h4>
+                            </label>
+                        </div>
+                        <textarea name="" class="form-control" id="lydo" cols="30" rows="5"
+                            placeholder="Nhập lý do không duyệt bài (bắt buộc nhập)"></textarea>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" id="btnKhongDuyetbai2">Không duyệt bài</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
