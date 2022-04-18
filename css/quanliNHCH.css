@@ -7,11 +7,6 @@ nav ul li:nth-child(2) a{
 }
 
 /* main */
-main{
-    margin: 50px 30px;
-    background-color: skyblue;
-    padding: 45px 0;
-}
 main .qsBank{
     margin-left: 80px;
     top: 6px;
@@ -23,7 +18,7 @@ main .btnThemCauhoi{
     border: none;
     border: 1px solid rgb(75, 75, 185);
     padding: 8px 15px;
-    margin-left: 650px;
+    margin-left: 490px;
 }
 main .monhoc{
     margin-left: 150px;

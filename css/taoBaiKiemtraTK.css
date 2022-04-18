@@ -1,0 +1,98 @@
+/* nav */
+nav ul li:nth-child(3) {
+    background-color: rgb(74, 74, 117);
+}
+
+nav ul li:nth-child(3) a {
+    color: white;
+}
+
+/* main */
+main form {
+    padding: 0 75px;
+}
+
+main form #thoigian {
+    appearance: none;
+}
+
+main form #lop {
+    appearance: none;
+}
+
+main form .dropdownIcon {
+    right: 18px;
+    top: 3px;
+}
+
+main form .cauhoi .dapan:hover{
+    cursor: pointer;
+}
+
+/* modal */
+#myModal2 .divTable {
+    height: 530px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    overflow-y: auto;
+}
+
+#myModal2 .divTable table th,
+#myModal2 .divTable table td {
+    padding: 15px;
+    border: 1px solid #f7f7f8;
+}
+
+#myModal2 .divTable table input[type="checkbox"] {
+    transform: scale(1.5);
+}
+
+#myModal2 .divTable table th {
+    background-color: #3898ca;
+}
+
+#myModal2 .divTable table th:nth-child(1),
+#myModal2 .divTable table th:nth-child(2) {
+    width: 50px;
+}
+
+#myModal2 .divTable table th:nth-child(3) {
+    width: 150px;
+}
+
+#myModal2 .divTable table th:nth-child(4) {
+    width: 300px;
+}
+
+#myModal2 .divTable table th:nth-child(5) {
+    width: 380px;
+}
+
+#myModal2 .divTable table th:nth-child(6) {
+    width: 90px;
+}
+
+#myModal2 .divTable table th:nth-child(7) {
+    width: 120px;
+}
+
+#myModal2 .divTable table th:first-child {
+    background-color: #64a4c7;
+}
+
+#myModal2 .divTable table td {
+    background-color: silver;
+    text-align: center;
+}
+
+#myModal2 .divTable table td:first-child {
+    background-color: rgb(206, 202, 205);
+}
+
+#myModal2 .divTable table td:nth-child(4) {
+    text-align: left;
+}
+
+#myModal2 .taoCH_tudong {
+    color: black;
+}
