@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,9 +15,11 @@
     <script src="../js/jquery-3.6.0.min.js"></script>
     <script src="../js/popper.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
-    
+    <script src="../js/quanliNHCH.js"></script>
+
     <title>Quản lí ngân hàng câu hỏi</title>
 </head>
+
 <body>
     <div class="container-fluid p-0">
         <header class="ml-4 mt-2 position-relative">
@@ -54,15 +57,18 @@
                 <li><a class="text-decoration-none" href="#">Trang chủ</a></li>
                 <li><a class="text-decoration-none" href="quanliNHCH.html">Quản lí ngân hàng câu hỏi</a></li>
                 <li><a class="text-decoration-none" href="taoBaiKiemtraTK.html">Tạo bài kiểm tra thường kì</a></li>
-                <li><a class="text-decoration-none" href="xetduyetCH_GKCK.html">Xét duyệt câu hỏi giữa kì, cuối lì</a></li>
+                <li><a class="text-decoration-none" href="xetduyetCH_GKCK.html">Xét duyệt câu hỏi giữa kì, cuối lì</a>
+                </li>
             </ul>
         </nav>
         <main>
             <div>
-                <div class="d-inline-block position-relative border border-dark rounded qsBank"><img src="../img/questionBank.png" width="50" height="50" alt=""></div>
+                <div class="d-inline-block position-relative border border-dark rounded qsBank"><img
+                        src="../img/questionBank.png" width="50" height="50" alt=""></div>
                 <h2 class="d-inline-block txtNHCH">Ngân hàng câu hỏi</h2>
                 <div class="d-inline-block">
-                    <button class="position-relative; rounded btnThemCauhoi" type="button" id="themCauhoi" data-toggle="modal" data-target="#myModal1">Thêm câu hỏi</button>
+                    <button class="position-relative; rounded btnThemCauhoi" type="button" id="themCauhoi"
+                        data-toggle="modal" data-target="#myModal1">Thêm câu hỏi</button>
                 </div>
                 <h5 class="monhoc">Môn: <span class="tenMonhoc">Toán</span></h5>
             </div>
@@ -101,7 +107,7 @@
                 </div>
             </div>
             <div class="divTable">
-                <table>
+                <table id="myTable">
                     <tr>
                         <th>STT</th>
                         <th>Khối</th>
@@ -133,7 +139,8 @@
                         <td>3</td>
                         <td>9</td>
                         <td>Tên giáo viên</td>
-                        <td>Cho tam giác ABC vuông tại A, đường cao AH có AB = 13cm, BH = 0,5dm. Tính tỉ số lượng giác sinC (làm tròn đến chữ số thập phân thứ 2)</td>
+                        <td>Cho tam giác ABC vuông tại A, đường cao AH có AB = 13cm, BH = 0,5dm. Tính tỉ số lượng giác
+                            sinC (làm tròn đến chữ số thập phân thứ 2)</td>
                         <td>Cuối kì</td>
                         <td>Đã duyệt</td>
                         <td>17/04/2022</td>
@@ -142,7 +149,8 @@
                         <td>4</td>
                         <td>9</td>
                         <td>Tên giáo viên</td>
-                        <td>Cho đường tròn (O) đường kính AB và dây CD không đi qua tâm. Khẳng định nào sau đây là đúng?</td>
+                        <td>Cho đường tròn (O) đường kính AB và dây CD không đi qua tâm. Khẳng định nào sau đây là đúng?
+                        </td>
                         <td>Giữa kì</td>
                         <td>Chưa duyệt</td>
                         <td>10/04/2022</td>
@@ -150,8 +158,10 @@
                 </table>
             </div>
         </main>
+
+        <!-- modal Thêm câu hỏi -->
         <div class="modal fade" id="myModal1">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h3 class="modal-title">Thêm câu hỏi</h3>
@@ -169,10 +179,9 @@
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                  <label for="khoi" class="input-group-text">Khối:</label>
+                                    <label for="khoi" class="input-group-text">Khối:</label>
                                 </div>
                                 <select name="" id="khoi" class="form-control">
-                                    <option value=""></option>
                                     <option value="khoi6">6</option>
                                     <option value="khoi7">7</option>
                                     <option value="khoi8">8</option>
@@ -181,57 +190,71 @@
                             </div>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                  <label for="loaibaiKiemtra" class="input-group-text">Loại bài kiểm tra:</label>
+                                    <label for="loaibaiKiemtra" class="input-group-text">Loại bài kiểm tra:</label>
                                 </div>
                                 <select name="" id="loaibaiKiemtra" class="form-control">
-                                    <option value=""></option>
                                     <option value="thuongki">Thường kì</option>
                                     <option value="giuaki">Giữa kì</option>
                                     <option value="cuoiki">Cuối kì</option>
                                 </select>
                             </div>
                             <div class="mb-2">
-                                <div class="mb-2 ml-3"><label class="w-100" for="txtNoidungCH">Nội dung câu hỏi:</label></div>
-                                <textarea class="form-control" name="" id="txtNoidungCH" cols="60" rows="5"></textarea>
+                                <div class="mb-2 ml-3"><label class="w-100" for="txtNoidungCH">Nội dung câu hỏi:</label>
+                                </div>
+                                <textarea class="form-control" name="" id="txtNoidungCH" cols="60" rows="5"
+                                    required></textarea>
+                                <span class="text-danger" id="errorNoidungCH"></span>
                             </div>
                             <div class="mb-3">
                                 <label class="ml-3 mb-3">Các phương án trả lời:</label>
-                                <div class="ml-2">
+                                <div class="ml-2 phuongan">
                                     <div class="mb-3">
                                         <button type="button" class="btn p-0 input-group">
                                             <label for="" class="input-group-text dapan">A</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" id="txtDapanA" required>
                                         </button>
+                                        <span class="text-danger" id="errorDapanA"></span>
                                     </div>
                                     <div class="mb-3">
                                         <button type="button" class="btn p-0 input-group">
                                             <label for="" class="input-group-text dapan">B</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" id="txtDapanB" required>
                                         </button>
+                                        <span class="text-danger" id="errorDapanB"></span>
                                     </div>
                                     <div class="mb-3">
                                         <button type="button" class="btn p-0 input-group">
                                             <label for="" class="input-group-text dapan">C</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" id="txtDapanC" required>
                                         </button>
+                                        <span class="text-danger" id="errorDapanC"></span>
                                     </div>
                                     <div class="mb-3">
                                         <button type="button" class="btn p-0 input-group">
                                             <label for="" class="input-group-text dapan">D</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" id="txtDapanD" required>
                                         </button>
+                                        <span class="text-danger" id="errorDapanD"></span>
                                     </div>
                                 </div>
                             </div>
                             <div class="d-block ml-2 mb-4">
-                                <a href="#"><img src="../img/pictureFile.png" width="23" height="20" alt=""><span class="ml-2 fl-6">Click vào để thêm hình ảnh (không bắt buộc)</span></a>
+                                <a id="fileSelect" href="#">
+                                    <img src="../img/pictureFile.png" width="23" height="20" alt="">
+                                    <span class="ml-2 fl-6">Click vào để thêm hình ảnh (không bắt buộc)</span>
+                                </a>
+                                <input type="file" class="d-none" id="fileElem" accept=".png, .jpg">
+                                <div id="fileSelected">
+                                </div>
                             </div>
                             <div class="row px-1">
                                 <div class="col-9">
-                                    <button type="button" class="btn btn-danger w-100">Lưu câu hỏi</button>
+                                    <button type="button" class="btn btn-danger w-100" id="btnLuuCH">Lưu câu
+                                        hỏi</button>
                                 </div>
                                 <div class="col-3">
-                                    <button type="button" class="btn btn-success w-100">Tiếp tục</button>
+                                    <button type="button" class="btn btn-success w-100" id="btnTieptuc">Tiếp
+                                        tục</button>
                                 </div>
                             </div>
                         </form>
@@ -239,8 +262,10 @@
                 </div>
             </div>
         </div>
+
+        <!-- modal xem thông tin chi tiết câu hỏi -->
         <div class="modal fade" id="myModal2">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h3 class="modal-title">Thông tin câu hỏi</h3>
@@ -249,7 +274,8 @@
                     <div class="modal-body">
                         <div class="mb-2"><span class="font-weight-bold mr-1">Ngày tạo:</span>18/03/2022</div>
                         <div class="mb-2"><span class="font-weight-bold mr-1">Tình trạng:</span>Đã duyệt</div>
-                        <div class="mb-1"><span class="font-weight-bold mr-1">Giáo viên tạo câu:</span>Tên giáo viên</div>
+                        <div class="mb-1"><span class="font-weight-bold mr-1">Giáo viên tạo câu:</span>Tên giáo viên
+                        </div>
                         <div class="mb-2"><span class="font-weight-bold mr-1">Môn học:</span>Lịch sử</div>
                         <form action="">
                             <div class="input-group mb-3">
@@ -269,8 +295,10 @@
                                 </select>
                             </div>
                             <div class="mb-2">
-                                <div class="mb-2 ml-3"><label class="w-100" for="txtNoidungCH2">Nội dung câu hỏi:</label></div>
-                                <textarea class="form-control" name="" id="txtNoidungCH2" cols="60" rows="5">Cuộc Duy tân Minh Trị có tác động như thế nào đến tình hình Nhật Bản cuối thế kỉ XIX- đầu thế kỉ XX?</textarea>
+                                <div class="mb-2 ml-3"><label class="w-100" for="txtNoidungCH2">Nội dung câu
+                                        hỏi:</label></div>
+                                <textarea class="form-control" name="" id="txtNoidungCH2" cols="60"
+                                    rows="5">Cuộc Duy tân Minh Trị có tác động như thế nào đến tình hình Nhật Bản cuối thế kỉ XIX- đầu thế kỉ XX?</textarea>
                             </div>
                             <div class="mb-3">
                                 <label style="margin-left: 15px;" class="mb-3">Các phương án trả lời:</label>
@@ -278,25 +306,29 @@
                                     <div class="mb-3">
                                         <button type="button" class="btn p-0 input-group">
                                             <label for="" class="input-group-text dapan">A</label>
-                                            <input type="text" class="form-control" value="Tạo tiền đề để Nhật chiến thắng trong các cuộc chiến tranh xâm lược thuộc địa.">
+                                            <input type="text" class="form-control"
+                                                value="Tạo tiền đề để Nhật chiến thắng trong các cuộc chiến tranh xâm lược thuộc địa.">
                                         </button>
                                     </div>
                                     <div class="mb-3">
                                         <button type="button" class="btn p-0 input-group">
                                             <label for="" class="input-group-text dapan">B</label>
-                                            <input type="text" class="form-control" value="Giúp Nhật Bản thoát khỏi nguy cơ bị biến thành thuộc địa, phát triển thành nước tư bản công nghiệp">
+                                            <input type="text" class="form-control"
+                                                value="Giúp Nhật Bản thoát khỏi nguy cơ bị biến thành thuộc địa, phát triển thành nước tư bản công nghiệp">
                                         </button>
                                     </div>
                                     <div class="mb-3">
                                         <button type="button" class="btn p-0 input-group">
                                             <label for="" class="input-group-text dapan">C</label>
-                                            <input type="text" class="form-control" value="Đưa Nhật Bản tiến nhanh trên con đường đế quốc chủ nghĩa">
+                                            <input type="text" class="form-control"
+                                                value="Đưa Nhật Bản tiến nhanh trên con đường đế quốc chủ nghĩa">
                                         </button>
                                     </div>
                                     <div class="mb-3">
                                         <button type="button" class="btn p-0 input-group">
                                             <label for="" class="input-group-text dapan">D</label>
-                                            <input type="text" class="form-control" value="Đưa Nhật Bản thoát khỏi tình trạng lạc hậu, gia nhập vào hàng ngũ các nước đế quốc">
+                                            <input type="text" class="form-control"
+                                                value="Đưa Nhật Bản thoát khỏi tình trạng lạc hậu, gia nhập vào hàng ngũ các nước đế quốc">
                                         </button>
                                     </div>
                                 </div>
@@ -305,7 +337,8 @@
                                 <img src="" width="100%" alt="">
                             </div>
                             <div class="d-block ml-2 mb-4">
-                                <a href="#"><img src="../img/pictureFile.png" width="23" height="20" alt=""><span class="ml-2">Click vào để cập nhật hình ảnh (không bắt buộc)</span></a>
+                                <a href="#"><img src="../img/pictureFile.png" width="23" height="20" alt=""><span
+                                        class="ml-2">Click vào để cập nhật hình ảnh (không bắt buộc)</span></a>
                             </div>
                             <div class="row px-1">
                                 <div class="col-6">
@@ -322,4 +355,5 @@
         </div>
     </div>
 </body>
+
 </html>
